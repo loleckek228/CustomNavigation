@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/image_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        android:src="@drawable/pic_a"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/left_text_view"
+        style="@style/TitleTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.8"
+        android:gravity="center"
+        android:text="@string/left_fragment_title"
+        app:layout_constraintBottom_toTopOf="@id/button"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/image_view" />
+
+    <Button
+        android:id="@+id/button"
+        style="@style/Button"
+        android:layout_width="match_parent"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="32dp"
+        android:text="@string/next"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/left_text_view" />
+
+</LinearLayout>
