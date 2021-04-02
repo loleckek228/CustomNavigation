@@ -1,13 +1,22 @@
 package com.customnavigation.ui.navigation.bottomnavigation.left
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.customnavigation.databinding.FragmentLeftBinding
-import com.customnavigation.ui.base.BaseFragment
 
-class LeftFragment : BaseFragment() {
+class LeftFragment : Fragment() {
+
+    private lateinit var navigation: LeftNavigation
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        navigation = parentFragment as LeftNavigation
+    }
 
     companion object {
         const val TAG = "LeftFragment"
@@ -26,18 +35,11 @@ class LeftFragment : BaseFragment() {
         return binding.root
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        setOnClickButtonListener()
-    }
-
-    private fun setOnClickButtonListener() {
         binding.button.setOnClickListener {
-            (parentFragment as LeftNavigation).toInnerLeft()
+            navigation.toInnerLeft()
         }
     }
 

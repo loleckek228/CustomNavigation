@@ -41,28 +41,19 @@ class DetailDialogFragment : DialogFragment() {
         return binding.root
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        arguments?.let {
-            val item: ListItem? = it.getParcelable(DETAIL_ITEM)
-
-            item?.let(::showTextView)
-        }
+        arguments?.getParcelable<ListItem?>(DETAIL_ITEM)?.let(::showTextView)
 
         initToolbar()
     }
 
-    private fun initToolbar() {
-        with(binding.toolbar) {
-            title.text = getString(R.string.detail)
+    private fun initToolbar() = with(binding.toolbar) {
+        title.text = getString(R.string.detail)
 
-            backButton.setOnClickListener {
-                dismiss()
-            }
+        backButton.setOnClickListener {
+            dismiss()
         }
     }
 

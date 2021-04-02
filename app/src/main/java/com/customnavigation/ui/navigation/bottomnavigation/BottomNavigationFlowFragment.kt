@@ -28,12 +28,10 @@ class BottomNavigationFlowFragment : BaseFlowFragment(), BottomNavigation {
                     toLeftFlow()
                     true
                 }
-
                 R.id.navigation_middle -> {
                     toListFlow()
                     true
                 }
-
                 R.id.navigation_right -> {
                     true
                 }
@@ -45,8 +43,8 @@ class BottomNavigationFlowFragment : BaseFlowFragment(), BottomNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            defaultDestination(toLeftFlow())
+        if (savedInstanceState == null && isEmptyStack()) {
+            toLeftFlow()
         }
     }
 
@@ -60,27 +58,16 @@ class BottomNavigationFlowFragment : BaseFlowFragment(), BottomNavigation {
         return binding.root
     }
 
-    override fun onViewCreated(
-        view: View,
-        savedInstanceState: Bundle?
-    ) {
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initBottomNavigationView()
-    }
-
-    private fun initBottomNavigationView() {
         bottomNavigationView = binding.bottomNavigationView
         bottomNavigationView.setOnNavigationItemSelectedListener(onNavigationItemSelectedListener)
     }
 
-    override fun toLeftFlow() {
-        childReplaceWithoutBackStack<LeftFlowFragment>(container)
-    }
+    override fun toLeftFlow() = childReplaceWithoutBackStack<LeftFlowFragment>(container)
 
-    override fun toListFlow() {
-        childReplaceWithoutBackStack<ListFlowFragment>(container)
-    }
+    override fun toListFlow() = childReplaceWithoutBackStack<ListFlowFragment>(container)
 
     override fun onDestroyView() {
         super.onDestroyView()

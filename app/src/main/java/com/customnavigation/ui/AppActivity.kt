@@ -24,16 +24,10 @@ class AppActivity : AppCompatActivity() {
         }
     }
 
-    override fun onBackPressed() {
-        val fragment =
-            supportFragmentManager.findFragmentById(R.id.app_container) as? BaseFlowFragment
-
-        if (fragment != null) {
-            if (!fragment.onBackPressed()) {
-                super.onBackPressed()
-            }
-        } else {
+    override fun onBackPressed() = (supportFragmentManager
+        .findFragmentById(R.id.app_container) as? BaseFlowFragment)?.let { fragment ->
+        if (!fragment.onBackPressed()) {
             super.onBackPressed()
         }
-    }
+    } ?: super.onBackPressed()
 }

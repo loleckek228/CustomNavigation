@@ -4,11 +4,11 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.customnavigation.R
 import com.customnavigation.databinding.FragmentInnerLeftBinding
-import com.customnavigation.ui.base.BaseFragment
 
-class InnerLeftFragment : BaseFragment() {
+class InnerLeftFragment : Fragment() {
 
     companion object {
         const val TAG = "InnerLeftFragment"
@@ -33,13 +33,11 @@ class InnerLeftFragment : BaseFragment() {
         initToolbar()
     }
 
-    private fun initToolbar() {
-        with(binding) {
-            title.text = getString(R.string.inner_left_fragment)
+    private fun initToolbar() = with(binding) {
+        title.text = getString(R.string.inner_left_fragment)
 
-            backButton.setOnClickListener {
-                activity?.onBackPressed()
-            }
+        backButton.setOnClickListener {
+            requireActivity().onBackPressed()
         }
     }
 

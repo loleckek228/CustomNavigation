@@ -11,16 +11,12 @@ class MainFlowFragment : BaseFlowFragment(), MainNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            defaultDestination(toLogin())
+        if (savedInstanceState == null && isEmptyStack()) {
+            toLogin()
         }
     }
 
-    override fun toBottomNavigation() {
-        childReplaceWithoutBackStack<BottomNavigationFlowFragment>(container)
-    }
+    override fun toBottomNavigation() = childReplaceWithoutBackStack<BottomNavigationFlowFragment>(container)
 
-    override fun toLogin() {
-        childReplaceWithoutBackStack<LoginFlowFragment>(container)
-    }
+    override fun toLogin() = childReplaceWithoutBackStack<LoginFlowFragment>(container)
 }

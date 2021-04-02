@@ -15,8 +15,8 @@ class ListFlowFragment : BaseFlowFragment(), ListNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            defaultDestination(toList())
+        if (savedInstanceState == null && isEmptyStack()) {
+            toList()
         }
     }
 
@@ -28,7 +28,5 @@ class ListFlowFragment : BaseFlowFragment(), ListNavigation {
         }
     }
 
-    override fun toList() {
-        childReplaceWithBackStack<ListFragment>(container, TAG)
-    }
+    override fun toList() = childReplaceWithBackStack<ListFragment>(container, TAG)
 }

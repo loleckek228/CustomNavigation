@@ -1,13 +1,22 @@
 package com.customnavigation.ui.login
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import com.customnavigation.databinding.FragmentLoginBinding
-import com.customnavigation.ui.base.BaseFragment
 
-class LoginFragment : BaseFragment() {
+class LoginFragment : Fragment() {
+
+    private lateinit var navigation: LoginNavigation
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+
+        navigation = parentFragment as LoginNavigation
+    }
 
     companion object {
         const val TAG = "LoginFragment"
@@ -29,24 +38,16 @@ class LoginFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        initViews()
+        setSingInButtonBehavior()
+        setSingUpButtonBehavior()
     }
 
-    private fun initViews() {
-        initSingInButton()
-        initSingUpButton()
+    private fun setSingInButtonBehavior() = binding.signInButton.setOnClickListener {
+        navigation.toSighIn()
     }
 
-    private fun initSingInButton() {
-        binding.signInButton.setOnClickListener {
-            (parentFragment as LoginNavigation).toSighIn()
-        }
-    }
-
-    private fun initSingUpButton() {
-        binding.signUpButton.setOnClickListener {
-            (parentFragment as LoginNavigation).toSignUp()
-        }
+    private fun setSingUpButtonBehavior() = binding.signUpButton.setOnClickListener {
+        navigation.toSignUp()
     }
 
     override fun onDestroyView() {

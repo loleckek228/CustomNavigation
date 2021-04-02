@@ -9,16 +9,12 @@ class LeftFlowFragment : BaseFlowFragment(), LeftNavigation {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) {
-            defaultDestination(toLeft())
+        if (savedInstanceState == null && isEmptyStack()) {
+            toLeft()
         }
     }
 
-    override fun toLeft() {
-        childReplaceWithBackStack<LeftFragment>(container, LeftFragment.TAG)
-    }
+    override fun toLeft() = childReplaceWithBackStack<LeftFragment>(container, LeftFragment.TAG)
 
-    override fun toInnerLeft() {
-        childReplaceWithBackStack<InnerLeftFragment>(container, InnerLeftFragment.TAG)
-    }
+    override fun toInnerLeft() = childReplaceWithBackStack<InnerLeftFragment>(container, InnerLeftFragment.TAG)
 }

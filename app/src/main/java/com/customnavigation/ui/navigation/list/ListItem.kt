@@ -5,9 +5,9 @@ import kotlinx.parcelize.Parcelize
 import kotlin.random.Random
 
 @Parcelize
-data class ListItem(
-    val name: String
-) : Parcelable {
+data class ListItem(val name: String) : Parcelable
+
+class ListItemFactory {
     companion object {
         private const val ITEM_NAME = "Item"
         private const val FIRST_ELEMENT = 0
@@ -23,9 +23,7 @@ data class ListItem(
             for (index in FIRST_ELEMENT..randomCount) {
                 val name = "$ITEM_NAME $index"
 
-                mutableList.add(
-                    ListItem(name)
-                )
+                mutableList += ListItem(name)
             }
 
             return mutableList

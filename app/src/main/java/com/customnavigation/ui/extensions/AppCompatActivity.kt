@@ -5,6 +5,4 @@ import com.customnavigation.ui.base.BaseFlowFragment
 
 inline fun <reified F : BaseFlowFragment> AppCompatActivity.activityReplaceWithoutBackStack(
     container: Int
-) {
-    supportFragmentManager.replaceWithoutBackStack<F>(container)
-}
+) = supportFragmentManager.replaceWithoutBackStack<F>(container)

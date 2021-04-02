@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="margin_material">16dp</dimen>
+    <dimen name="margin_material_half">8dp</dimen>
+
+    <dimen name="text_size">14sp</dimen>
+    <dimen name="button_text_size">14sp</dimen>
+    <dimen name="title_text_size">20sp</dimen>
+
+    <dimen name="button_height">66dp</dimen>
+    <dimen name="button_bottom_margin">32dp</dimen>
+
+    <dimen name="card_corner_radius">7dp</dimen>
+    <dimen name="line_spacing_extra">4dp</dimen>
+    <dimen name="image_view_height">243dp</dimen>
+</resources>

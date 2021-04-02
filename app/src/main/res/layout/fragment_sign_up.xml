@@ -20,7 +20,7 @@
         style="@style/TextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginHorizontal="16dp"
+        android:layout_marginHorizontal="@dimen/margin_material"
         android:text="@string/lorem_ipsum"
         app:layout_constraintBottom_toBottomOf="@id/guideline"
         app:layout_constraintTop_toTopOf="@id/guideline" />
@@ -29,8 +29,8 @@
         android:id="@+id/sign_up_button"
         style="@style/Button"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="32dp"
+        android:layout_marginHorizontal="@dimen/margin_material"
+        android:layout_marginBottom="@dimen/button_bottom_margin"
         android:text="@string/next"
         app:layout_constraintBottom_toBottomOf="parent" />
 

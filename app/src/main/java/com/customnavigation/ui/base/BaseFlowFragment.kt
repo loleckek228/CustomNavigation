@@ -29,15 +29,11 @@ abstract class BaseFlowFragment : Fragment() {
         return binding.root
     }
 
-    protected fun defaultDestination(destination: Unit) {
-        if (childFragmentManager.fragments.isEmpty()) destination
-    }
+    protected fun isEmptyStack(): Boolean = childFragmentManager.fragments.isEmpty()
 
-    fun onBackPressed(): Boolean {
-        val currentFragment = childFragmentManager.findFragmentById(container)
-
-        return if (currentFragment is BaseFlowFragment) {
-            currentFragment.onBackPressed()
+    fun onBackPressed(): Boolean = childFragmentManager.findFragmentById(container).let { fragment ->
+        if (fragment is BaseFlowFragment) {
+            fragment.onBackPressed()
         } else {
             if (childFragmentManager.backStackEntryCount > MIN_SCREEN_COUNT) {
                 childFragmentManager.popBackStack()

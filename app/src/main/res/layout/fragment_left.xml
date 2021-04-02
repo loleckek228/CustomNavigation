@@ -20,22 +20,14 @@
         android:layout_height="0dp"
         android:layout_weight="0.8"
         android:gravity="center"
-        android:text="@string/left_fragment_title"
-        app:layout_constraintBottom_toTopOf="@id/button"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/image_view" />
+        android:text="@string/left_fragment_title" />
 
     <Button
         android:id="@+id/button"
         style="@style/Button"
         android:layout_width="match_parent"
-        android:layout_marginHorizontal="16dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/left_text_view" />
+        android:layout_marginHorizontal="@dimen/margin_material"
+        android:layout_marginBottom="@dimen/button_bottom_margin"
+        android:text="@string/next" />
 
 </LinearLayout>
