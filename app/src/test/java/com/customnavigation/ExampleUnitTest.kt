@@ -1,4 +1,4 @@
-package com.umbrellait.customnavigation
+package com.customnavigation
 
 import org.junit.Test
 
