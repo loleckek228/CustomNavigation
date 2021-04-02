@@ -13,7 +13,7 @@ import com.customnavigation.ui.navigation.list.ListItem
 class DetailDialogFragment : DialogFragment() {
 
     companion object {
-        const val DETAIL_ITEM = "detail_item"
+        const val DETAIL_ITEM = "DetailDialogFragment.DETAIL_ITEM"
 
         fun newInstance(item: ListItem): DetailDialogFragment = DetailDialogFragment().apply {
             arguments = bundleOf(
